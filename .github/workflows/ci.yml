@@ -2,33 +2,36 @@ name: CI
 
 on:
   push:
+    branches: [main]
   pull_request:
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    # ← Add this block:
     env:
-      FRED_API_KEY: dummy
+      FRED_API_KEY: dummy_key
 
     strategy:
       matrix:
         python-version:
-          - '3.9'
-          - '3.10'
-          - '3.11'
+          - "3.9"
+          - "3.10"
+          - "3.11"
 
     steps:
       - uses: actions/checkout@v3
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
       - name: Smoke‑test import
         run: |
           python - << 'EOF'
@@ -36,5 +39,5 @@ jobs:
           import src.var_mc
           import src.valuation
           import src.dashboard
-          print("Imports OK")
+          print("✅ Imports OK")
           EOF
