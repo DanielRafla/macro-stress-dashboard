@@ -9,12 +9,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-     strategy:
+# …snip…
+    strategy:
       matrix:
         python-version:
           - '3.9'
           - '3.10'
           - '3.11'
+# …snip…
+
     steps:
       - uses: actions/checkout@v3
 
