@@ -32,19 +32,19 @@ python -m src.dashboard
 ```
 ## Usage
 
-```bash
 # Launch the interactive dashboard
 python src/dashboard.py
 
 ## Deploying
-
-You can also containerize:
-
 ```bash
 docker build -t macro-stress-dashboard .
 docker run -p 8050:8050 macro-stress-dashboard
+```    
 
 ## Demo
 
-### Yield Curve Under +100 bp Shock <img width="1470" alt="Screenshot 2025-07-18 at 1 36 05 PM" src="https://github.com/user-attachments/assets/0e38c1be-cf5b-4200-b158-bee521b726d6" />
-### Yield Curve Under +300 bp Shock <img width="1470" alt="Screenshot 2025-07-18 at 1 36 54 PM" src="https://github.com/user-attachments/assets/2104c30f-d26d-432b-8e46-2237e0301e38" />
+### Yield Curve Under +100 bp Shock
+![Yield‑curve +100 bp](src/shock_100bps.png)
+
+### Yield Curve Under +300 bp Shock
+![Yield‑curve +300 bp](src/%2B300BPS.png)
